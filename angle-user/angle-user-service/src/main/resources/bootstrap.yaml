@@ -3,4 +3,10 @@ spring:
     config:
       profile: dev
       name: user
-      uri: http://localhost:10020
+      discovery:
+        enabled: true
+        service-id: angle-config-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10010/eureka/

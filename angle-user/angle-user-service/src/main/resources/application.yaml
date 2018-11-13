@@ -3,8 +3,5 @@ server:
 spring:
   application:
     name: angle-user
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10010/eureka/
+
 name: 123
