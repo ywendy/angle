@@ -12,8 +12,8 @@
         <module>angle-config-server</module>
         <module>angle-register-center</module>
         <module>angle-user</module>
-        <module>angle-common</module>
         <module>angle-gateway</module>
+        <module>angle-common</module>
     </modules>
 
 

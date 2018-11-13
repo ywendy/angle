@@ -1,5 +1,6 @@
 package com.angle.user.api;
 
+import com.angle.common.vo.ApiResult;
 import com.angle.user.dto.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,5 +19,7 @@ public interface UserApi {
      * @return {@link UserDto}
      */
      UserDto getUserById(@RequestParam("userId") Long userId);
+
+     ApiResult<UserDto> getUserDtoById(@RequestParam("userId") Long userId);
 
 }
