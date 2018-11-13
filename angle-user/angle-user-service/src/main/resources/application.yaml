@@ -3,5 +3,9 @@ server:
 spring:
   application:
     name: angle-user
+  datasource:
+    url:
+    username:
+    password:
 
 name: 123
