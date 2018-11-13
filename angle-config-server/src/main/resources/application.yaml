@@ -3,13 +3,6 @@ server:
 spring:
   application:
     name: angle-config-server
-  profiles:
-    active: native
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: classpath:/config/sys , classpath:/config/user
 
 eureka:
   client:
