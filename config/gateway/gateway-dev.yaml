@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+      - id: angle-user
+        uri: lb://angle-user
+        predicates:
+        - Path=/user/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10010/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
