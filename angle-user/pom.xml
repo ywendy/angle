@@ -19,6 +19,7 @@
         <spring-cloud-release.version>Finchley.SR2</spring-cloud-release.version>
         <io-platform-release.version>Cairo-SR5</io-platform-release.version>
         <mybatis-starter.version>1.3.2</mybatis-starter.version>
+        <swagger2.version>2.9.2</swagger2.version>
     </properties>
 
     <dependencyManagement>

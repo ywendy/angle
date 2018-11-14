@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @FeignClient("user")
-public interface UserApi {
+public interface UserApiClient {
+
 
     /**
-     * 根据用户Id查询用户信息
+     * 根据userId查询用户信息
      * @param userId
-     * @return {@link UserDto}
+     * @return
      */
-     UserDto getUserById(@RequestParam("userId") Long userId);
-
      ApiResult<UserDto> getUserDtoById(@RequestParam("userId") Long userId);
 
 }

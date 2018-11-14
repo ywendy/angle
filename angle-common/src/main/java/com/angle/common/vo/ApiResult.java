@@ -1,10 +1,16 @@
 package com.angle.common.vo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  *
+ * @author aaa
  */
+
 public class ApiResult<T> {
+    @ApiModelProperty(name = "code",value="返回码",notes="响应码", required=true, dataType="int")
     private int code;
+    @ApiModelProperty(name = "message",value="错误信息",notes="错误信息", required=true, dataType="String")
     private String message;
 
     private T data;

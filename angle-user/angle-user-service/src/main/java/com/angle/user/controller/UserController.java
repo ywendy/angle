@@ -1,8 +1,12 @@
 package com.angle.user.controller;
 
-import com.angle.user.api.UserApi;
+import com.angle.common.vo.ApiResult;
+import com.angle.user.api.UserApiClient;
 import com.angle.user.dto.UserDto;
 import com.angle.user.util.UserCache;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 @RefreshScope
-public class UserController implements UserApi {
+public class UserController  {
 
     @Value("${name}")
     private String userName;
 
-    @Override
+
+
+    @ApiOperation(value = "根据Id获取用户",notes = "根据userId获取用户信息")
+    @ApiImplicitParams(
+            @ApiImplicitParam(value = "用户ID",required = true,dataType = "Long",paramType = "query")
+    )
     @GetMapping("/getUserById")
-    public UserDto getUserById(@RequestParam("userId") Long userId) {
+    public ApiResult<UserDto> getUserDtoById(@RequestParam("userId") Long userId) {
         UserDto userDto =  UserCache.getUserById(userId);
         userDto.setName(userName);
-        return userDto;
+        return ApiResult.success(userDto);
     }
 }
