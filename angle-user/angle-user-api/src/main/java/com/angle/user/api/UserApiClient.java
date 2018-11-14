@@ -3,7 +3,8 @@ package com.angle.user.api;
 import com.angle.common.vo.ApiResult;
 import com.angle.user.dto.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * @author YJ
@@ -16,9 +17,11 @@ public interface UserApiClient {
 
     /**
      * 根据userId查询用户信息
+     *
      * @param userId
      * @return
      */
-     ApiResult<UserDto> getUserDtoById(@RequestParam("userId") Long userId);
+    @GetMapping("/{userId}")
+    ApiResult<UserDto> getUserDtoById(@PathVariable("userId") Long userId);
 
 }

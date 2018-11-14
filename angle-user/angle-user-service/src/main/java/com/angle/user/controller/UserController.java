@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author YJ
@@ -30,10 +27,10 @@ public class UserController  {
 
     @ApiOperation(value = "根据Id获取用户",notes = "根据userId获取用户信息")
     @ApiImplicitParams(
-            @ApiImplicitParam(value = "用户ID",required = true,dataType = "Long",paramType = "query")
+            @ApiImplicitParam(value = "用户ID",required = true,dataType = "Long",paramType = "path")
     )
-    @GetMapping("/getUserById")
-    public ApiResult<UserDto> getUserDtoById(@RequestParam("userId") Long userId) {
+    @GetMapping("/{userId}")
+    public ApiResult<UserDto> getUserDtoById(@PathVariable("userId") Long userId) {
         UserDto userDto =  UserCache.getUserById(userId);
         userDto.setName(userName);
         return ApiResult.success(userDto);
